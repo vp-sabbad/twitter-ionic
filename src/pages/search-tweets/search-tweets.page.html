@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-searchbar
+      [hidden]="!isSearchVisible"
+      (change)="searchTweets($event)"
+    >
+    </ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearchBar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <tweets-list
+    [query]="query"
+    [tweets]="tweets"
+    (tweetClick)="handleTweetClick($event)"
+  >
+  </tweets-list>
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-list>
+  <ion-list-header>
+    <span [hidden]="query">Enter query</span>
+    <span [hidden]="!query || query === ''">
+      Tweets for {{query}}
+    </span>
+  </ion-list-header>
+  <tweet-list-item
+    *ngFor="let tweet of tweets"
+    [tweet]="tweet"
+    (tweetClick)="handleTweetClick($event)"
+  >
+  </tweet-list-item>
+</ion-list>

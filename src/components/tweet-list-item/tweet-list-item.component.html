@@ -1,0 +1,20 @@
+<ion-item-sliding>
+  <ion-item detail-push (click)="handleItemClick()">
+    <ion-avatar item-left>
+      <img [src]="tweet.user.profile_image_url">
+    </ion-avatar>
+    <h2><b>{{tweet.user.name}}</b></h2>
+    <h3><b>@{{tweet.user.screen_name}}</b></h3>
+    <p>{{tweet.text}}</p>
+  </ion-item>
+  <ion-item-options side="left">
+    <button ion-button color="primary">
+      <ion-icon name="text"></ion-icon>
+      Text
+    </button>
+    <button ion-button color="secondary">
+      <ion-icon name="call"></ion-icon>
+      Call
+    </button>
+  </ion-item-options>
+</ion-item-sliding>
