@@ -14,8 +14,8 @@
 </ion-header>
 <ion-content>
   <tweets-list
-    [query]="query"
-    [tweets]="tweets"
+    [query]="query$ | async"
+    [tweets]="tweets$ | async"
     (tweetClick)="handleTweetClick($event)"
   >
   </tweets-list>

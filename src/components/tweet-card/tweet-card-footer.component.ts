@@ -1,6 +1,7 @@
 import {
   Component,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
@@ -16,7 +17,8 @@ import {
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>
     </ion-item>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TweetCardFooter {
 

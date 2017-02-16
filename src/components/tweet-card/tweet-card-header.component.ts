@@ -1,6 +1,7 @@
 import {
   Component,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
@@ -13,7 +14,8 @@ import {
       <h2><b>{{tweet.user.name}}</b></h2>
       <h3><b>@{{tweet.user.screen_name}}</b></h3>
     </ion-item>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TweetCardHeader {
 

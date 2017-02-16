@@ -2,5 +2,5 @@
   <ion-navbar color="primary"></ion-navbar>
 </ion-header>
 <ion-content>
-  <tweet-card [tweet]="tweet"></tweet-card>
+  <tweet-card [tweet]="tweet$ | async"></tweet-card>
 </ion-content>

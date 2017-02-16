@@ -1,6 +1,7 @@
 import {
   Component,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
@@ -11,7 +12,8 @@ import {
       <tweet-card-content [tweet]="tweet"></tweet-card-content>
       <tweet-card-footer [tweet]="tweet"></tweet-card-footer>
     </ion-card>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TweetCard {
 

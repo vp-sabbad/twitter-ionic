@@ -1,6 +1,7 @@
 import {
   Component,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
@@ -13,7 +14,8 @@ import {
         [src]="tweet.entities.media && tweet.entities.media[0].media_url"
       >
     </ion-card-content>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush  
 })
 export class TweetCardContent {
 

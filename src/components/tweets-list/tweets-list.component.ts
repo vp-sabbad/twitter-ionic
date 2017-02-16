@@ -2,12 +2,14 @@ import {
   Component,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'tweets-list',
-  templateUrl: 'tweets-list.component.html'
+  templateUrl: 'tweets-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush  
 })
 export class TweetsList {
 
