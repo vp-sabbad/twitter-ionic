@@ -1,6 +1,8 @@
 import {
   Component,
   Input,
+  Output,
+  EventEmitter,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -12,7 +14,12 @@ import {
         <ion-icon name="arrow-dropleft"></ion-icon>
         <span>previous</span>
       </button>
-      <button item-right ion-button outline icon-right>
+      <button item-right 
+        ion-button
+        outline
+        icon-right
+        (click)="handleNextTweet($event)"
+      >
         <span>next</span>
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>
@@ -26,5 +33,12 @@ export class TweetCardFooter {
   tweet: any;
 
   constructor() {}
+
+  @Output()
+  nextTweet: EventEmitter<any> = new EventEmitter();
+
+  handleNextTweet() {
+    this.nextTweet.emit({});
+  }
 
 }

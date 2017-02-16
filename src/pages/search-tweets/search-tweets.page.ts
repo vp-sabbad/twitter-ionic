@@ -9,11 +9,13 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 import { State } from '../../store/reducer';
+
 import {
   getQuery,
   getTweets,
   isLoading
 } from '../../store/selectors';
+
 import { 
   SearchAction,
   SetTweetsAction,
@@ -48,7 +50,6 @@ export class SearchTweetsPage {
     this.tweets$ = store.select(getTweets);
     this.loading$ = store.select(isLoading)
     this.loading$.subscribe(loading => this.toggleLoading(loading));
-
   }
 
   toggleLoading(loading: boolean) {

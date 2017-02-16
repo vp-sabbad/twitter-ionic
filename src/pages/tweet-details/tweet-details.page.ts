@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 
 import {State} from '../../store/reducer';
 import { getTweet } from '../../store/selectors';
+import { NextTweetAction } from '../../store/actions';
 
 @Component({
   selector: 'tweet-details',
@@ -30,4 +31,7 @@ export class TweetDetailsPage {
     this.tweet$ = store.select(getTweet);
   }
 
+  handleNextTweet() {
+    this.store.dispatch(new NextTweetAction(null));
+  }
 }

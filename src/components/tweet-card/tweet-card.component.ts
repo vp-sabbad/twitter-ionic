@@ -1,6 +1,8 @@
 import {
   Component,
   Input,
+  Output,
+  EventEmitter,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -10,7 +12,11 @@ import {
     <ion-card>
       <tweet-card-header [tweet]="tweet"></tweet-card-header>
       <tweet-card-content [tweet]="tweet"></tweet-card-content>
-      <tweet-card-footer [tweet]="tweet"></tweet-card-footer>
+      <tweet-card-footer 
+        [tweet]="tweet"
+        (nextTweet)="handleNextTweet($event)"
+      >
+      </tweet-card-footer>
     </ion-card>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,6 +26,12 @@ export class TweetCard {
   @Input()
   tweet: any;
 
+  @Output()
+  nextTweet: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
+  handleNextTweet() {
+    this.nextTweet.emit({});
+  }
 }
