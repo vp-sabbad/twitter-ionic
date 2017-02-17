@@ -27,7 +27,7 @@ export function reducer(state = initialState, action: actions.Actions) : State {
         loading: true
       })
     }
-    case actions.ActionTypes.SET_TWEETS: {
+    case actions.ActionTypes.SEARCH_COMPLETED: {
       return Object.assign({}, state, {
         tweets: action.payload,
         loading: false
@@ -51,4 +51,3 @@ export function reducer(state = initialState, action: actions.Actions) : State {
 
   }
 }
-

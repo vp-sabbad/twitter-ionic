@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { StoreModule } from '@ngrx/store'
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { App } from './app.component';
 import { SearchTweetsPage } from '../pages/search-tweets/search-tweets.page';
 import { TweetDetailsPage } from '../pages/tweet-details/tweet-details.page';
@@ -12,6 +13,7 @@ import { TweetCardContent } from '../components/tweet-card/tweet-card-content.co
 import { TweetCardFooter } from '../components/tweet-card/tweet-card-footer.component';
 import { TwitterApi } from '../services/twitter-api';
 import { reducer } from '../store/reducer';
+import { TwitterEffects } from '../store/effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { reducer } from '../store/reducer';
   ],
   imports: [
     IonicModule.forRoot(App),
-    StoreModule.provideStore(reducer)
+    StoreModule.provideStore(reducer),
+    EffectsModule.run(TwitterEffects)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { 
+import {
   NavController,
   LoadingController
 } from 'ionic-angular';
@@ -16,9 +16,8 @@ import {
   isLoading
 } from '../../store/selectors';
 
-import { 
+import {
   SearchAction,
-  SetTweetsAction,
   SetTweetAction
 } from '../../store/actions';
 
@@ -43,13 +42,27 @@ export class SearchTweetsPage {
     private twitterApi: TwitterApi,
     private store: Store<State>
   ) {
+    // this.loader = this.loadingCtrl.create({
+    //   content: "Please wait...",
+    // });
+    this.query$ = store.select(getQuery);
+    this.tweets$ = store.select(getTweets);
+    this.loading$ = store.select(isLoading);
+    this.loading$.subscribe(loading => {
+      if (loading) this.showLoading();
+      else this.hideLoading();
+    });
+  }
+
+  showLoading() {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    this.query$ = store.select(getQuery);
-    this.tweets$ = store.select(getTweets);
-    this.loading$ = store.select(isLoading)
-    this.loading$.subscribe(loading => this.toggleLoading(loading));
+    this.loader.present();
+  }
+
+  hideLoading() {
+    if (this.loader) this.loader.dismiss();
   }
 
   toggleLoading(loading: boolean) {
@@ -62,11 +75,7 @@ export class SearchTweetsPage {
   }
 
   searchTweets(event: any) {
-    const query = event.target.value;
-    this.store.dispatch(new SearchAction(query));
-    this.twitterApi.search(query)
-      .then(tweets => new SetTweetsAction(tweets))
-      .then(action => this.store.dispatch(action));
+    this.store.dispatch(new SearchAction(event.target.value));
   }
 
   handleTweetClick(tweet: any) {
