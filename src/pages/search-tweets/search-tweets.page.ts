@@ -21,7 +21,6 @@ import {
   SetTweetAction
 } from '../../store/actions';
 
-import { TwitterApi } from '../../services/twitter-api';
 import { TweetDetailsPage } from '../tweet-details/tweet-details.page';
 
 @Component({
@@ -39,12 +38,8 @@ export class SearchTweetsPage {
   constructor(
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
-    private twitterApi: TwitterApi,
     private store: Store<State>
   ) {
-    // this.loader = this.loadingCtrl.create({
-    //   content: "Please wait...",
-    // });
     this.query$ = store.select(getQuery);
     this.tweets$ = store.select(getTweets);
     this.loading$ = store.select(isLoading);
