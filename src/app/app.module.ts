@@ -14,6 +14,7 @@ import { TweetCardFooter } from '../components/tweet-card/tweet-card-footer.comp
 import { TwitterApi } from '../services/twitter-api';
 import { reducer } from '../store/reducer';
 import { TwitterEffects } from '../store/effects';
+import { Focuser } from '../directives/focuser.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TwitterEffects } from '../store/effects';
     TweetCard,
     TweetCardHeader,
     TweetCardContent,
-    TweetCardFooter
+    TweetCardFooter,
+    Focuser
   ],
   imports: [
     IonicModule.forRoot(App),

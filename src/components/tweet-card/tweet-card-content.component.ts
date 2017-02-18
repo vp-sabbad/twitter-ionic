@@ -15,7 +15,7 @@ import {
       >
     </ion-card-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush  
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TweetCardContent {
 

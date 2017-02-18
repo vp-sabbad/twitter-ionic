@@ -2,5 +2,9 @@
   <ion-navbar color="primary"></ion-navbar>
 </ion-header>
 <ion-content>
-  <tweet-card [tweet]="tweet$ | async" (nextTweet)="handleNextTweet($event)"></tweet-card>
+  <tweet-card
+    [tweet]="tweet$ | async"
+    (previousTweet)="handlePreviousTweet($event)"
+    (nextTweet)="handleNextTweet($event)">
+  </tweet-card>
 </ion-content>

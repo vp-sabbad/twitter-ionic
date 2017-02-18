@@ -43,10 +43,12 @@ export class SearchTweetsPage {
     this.query$ = store.select(getQuery);
     this.tweets$ = store.select(getTweets);
     this.loading$ = store.select(isLoading);
-    this.loading$.subscribe(loading => {
-      if (loading) this.showLoading();
-      else this.hideLoading();
-    });
+    this.loading$.subscribe(this.toggleLoading.bind(this));
+  }
+
+  toggleLoading(loading) {
+    if (loading) this.showLoading();
+    else this.hideLoading();
   }
 
   showLoading() {
@@ -58,11 +60,6 @@ export class SearchTweetsPage {
 
   hideLoading() {
     if (this.loader) this.loader.dismiss();
-  }
-
-  toggleLoading(loading: boolean) {
-    if (loading) this.loader.present();
-    else this.loader.dismiss();
   }
 
   toggleSearchBar() {

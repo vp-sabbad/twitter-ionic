@@ -7,7 +7,7 @@ export interface State {
   tweets: any[],
   query: string,
   loading: boolean
-}
+};
 
 const initialState: State = {
   tweet: null,
@@ -15,17 +15,17 @@ const initialState: State = {
   tweets: [],
   query: '',
   loading: false
-}
-
+};
 
 export function reducer(state = initialState, action: actions.Actions) : State {
   switch (action.type) {
     case actions.ActionTypes.SEARCH: {
-      if (action.payload === '') return initialState;
-      return Object.assign({}, state, {
-        query: action.payload,
-        loading: true
-      })
+      return action.payload === ''
+        ? initialState
+        : Object.assign({}, state, {
+          query: action.payload,
+          loading: true
+        })
     }
     case actions.ActionTypes.SEARCH_COMPLETED: {
       return Object.assign({}, state, {
@@ -47,7 +47,17 @@ export function reducer(state = initialState, action: actions.Actions) : State {
           tweetIndex
         });
       }
+      return state;
     }
-
+    case actions.ActionTypes.PREVIOUS_TWEET: {
+      if (state.tweetIndex > 0) {
+        const tweetIndex = state.tweetIndex - 1;
+        return Object.assign({}, state, {
+          tweet: state.tweets[tweetIndex],
+          tweetIndex
+        });
+      }
+      return state;
+    }
   }
 }

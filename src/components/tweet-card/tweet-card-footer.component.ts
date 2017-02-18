@@ -10,11 +10,16 @@ import {
   selector: 'tweet-card-footer',
   template: `
     <ion-item>
-      <button item-left ion-button outline icon-left>
+      <button item-left
+        ion-button
+        outline
+        icon-left
+        (click)="handlePreviousTweet($event)"
+      >
         <ion-icon name="arrow-dropleft"></ion-icon>
         <span>previous</span>
       </button>
-      <button item-right 
+      <button item-right
         ion-button
         outline
         icon-right
@@ -32,13 +37,20 @@ export class TweetCardFooter {
   @Input()
   tweet: any;
 
-  constructor() {}
-
   @Output()
   nextTweet: EventEmitter<any> = new EventEmitter();
 
+  @Output()
+  previousTweet: EventEmitter<any> = new EventEmitter();
+
+  constructor() {}
+
   handleNextTweet() {
     this.nextTweet.emit({});
+  }
+
+  handlePreviousTweet() {
+    this.previousTweet.emit({});
   }
 
 }

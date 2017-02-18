@@ -12,9 +12,10 @@ import {
     <ion-card>
       <tweet-card-header [tweet]="tweet"></tweet-card-header>
       <tweet-card-content [tweet]="tweet"></tweet-card-content>
-      <tweet-card-footer 
+      <tweet-card-footer
         [tweet]="tweet"
         (nextTweet)="handleNextTweet($event)"
+        (previousTweet)="handlePreviousTweet($event)"
       >
       </tweet-card-footer>
     </ion-card>
@@ -29,9 +30,17 @@ export class TweetCard {
   @Output()
   nextTweet: EventEmitter<any> = new EventEmitter();
 
+  @Output()
+  previousTweet: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
   handleNextTweet() {
     this.nextTweet.emit({});
   }
+
+  handlePreviousTweet() {
+    this.previousTweet.emit({});
+  }
+
 }

@@ -4,7 +4,8 @@ export const ActionTypes = {
   SEARCH: 'SEARCH',
   SET_TWEET: 'SET_TWEET',
   SEARCH_COMPLETED: 'SEARCH_COMPLETED',
-  NEXT_TWEET: 'NEXT_TWEET'
+  NEXT_TWEET: 'NEXT_TWEET',
+  PREVIOUS_TWEET: 'PREVIOUS_TWEET'
 };
 
 export class SearchAction implements Action {
@@ -27,7 +28,13 @@ export class NextTweetAction implements Action {
   constructor(public payload: any) {}
 }
 
+export class PreviousTweetAction implements Action {
+  type = ActionTypes.PREVIOUS_TWEET;
+  constructor(public payload: any) {}
+}
+
 export type Actions = SearchAction
   | SetTweetAction
   | NextTweetAction
+  | PreviousTweetAction
   | SearchCompletedAction;
