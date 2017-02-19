@@ -8,7 +8,6 @@
   <tweet-list-item
     *ngFor="let tweet of tweets"
     [tweet]="tweet"
-    (tweetClick)="handleTweetClick($event)"
-  >
+    (tweetClick)="handleTweetClick($event)">
   </tweet-list-item>
 </ion-list>

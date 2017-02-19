@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { App } from './app.component';
 import { SearchTweetsPage } from '../pages/search-tweets/search-tweets.page';
+import { SearchHeader } from '../components/search-header/search-header.component'
 import { TweetDetailsPage } from '../pages/tweet-details/tweet-details.page';
 import { TweetListItem } from '../components/tweet-list-item/tweet-list-item.component'
 import { TweetsList } from '../components/tweets-list/tweets-list.component'
@@ -20,6 +21,7 @@ import { Focuser } from '../directives/focuser.directive';
   declarations: [
     App,
     SearchTweetsPage,
+    SearchHeader,
     TweetsList,
     TweetListItem,
     TweetDetailsPage,

@@ -14,8 +14,7 @@ import {
         ion-button
         outline
         icon-left
-        (click)="handlePreviousTweet($event)"
-      >
+        (click)="handlePreviousTweet($event)">
         <ion-icon name="arrow-dropleft"></ion-icon>
         <span>previous</span>
       </button>
@@ -23,8 +22,7 @@ import {
         ion-button
         outline
         icon-right
-        (click)="handleNextTweet($event)"
-      >
+        (click)="handleNextTweet($event)">
         <span>next</span>
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>

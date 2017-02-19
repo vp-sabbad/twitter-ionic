@@ -11,8 +11,7 @@ import {
       <p>{{tweet.text}}</p>
       <img width="100%"
         [hidden]="!tweet.entities.media"
-        [src]="tweet.entities.media && tweet.entities.media[0].media_url"
-      >
+        [src]="tweet.entities.media && tweet.entities.media[0].media_url">
     </ion-card-content>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush

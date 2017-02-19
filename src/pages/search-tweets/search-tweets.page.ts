@@ -32,7 +32,6 @@ export class SearchTweetsPage {
   private query$: Observable<String>;
   private tweets$: Observable<any[]>;
   private loading$: Observable<boolean>;
-  private isSearchVisible = false;
   private loader: any;
 
   constructor(
@@ -62,12 +61,8 @@ export class SearchTweetsPage {
     if (this.loader) this.loader.dismiss();
   }
 
-  toggleSearchBar() {
-    this.isSearchVisible = !this.isSearchVisible;
-  }
-
-  searchTweets(event: any) {
-    this.store.dispatch(new SearchAction(event.target.value));
+  handleSearch(query: string) {
+    this.store.dispatch(new SearchAction(query));
   }
 
   handleTweetClick(tweet: any) {

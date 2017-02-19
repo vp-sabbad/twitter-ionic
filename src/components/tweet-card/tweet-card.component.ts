@@ -15,8 +15,7 @@ import {
       <tweet-card-footer
         [tweet]="tweet"
         (nextTweet)="handleNextTweet($event)"
-        (previousTweet)="handlePreviousTweet($event)"
-      >
+        (previousTweet)="handlePreviousTweet($event)">
       </tweet-card-footer>
     </ion-card>
   `,
