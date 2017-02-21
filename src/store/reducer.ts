@@ -9,7 +9,7 @@ export interface State {
   loading: boolean
 };
 
-const initialState: State = {
+export const initialState: State = {
   tweet: null,
   tweetIndex: -1,
   tweets: [],

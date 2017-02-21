@@ -14,11 +14,11 @@ export class TwitterApi {
     );
   }
 
-  search(query: String) : Promise<any[]>{
+  search(query: String) : Promise<any> {
     return new Promise((resolve, reject) => {
       return this.codebird.__call(
         'search_tweets',
-        `q=${query}`,
+        `q=${query}&count=100&include_entities=true`,
         (response) => resolve(response.statuses)
       );
     });

@@ -32,7 +32,13 @@ import { Focuser } from '../directives/focuser.directive';
     Focuser
   ],
   imports: [
-    IonicModule.forRoot(App),
+    IonicModule.forRoot(App, {
+      platforms: {
+        ios: {
+          statusBarPadding: true
+        }
+      }
+    }),
     StoreModule.provideStore(reducer),
     EffectsModule.run(TwitterEffects)
   ],
